@@ -2,7 +2,7 @@
 #include "raylib/include/raylib.h"
 
 Menu::Menu() {
-  cusor = {345,100,200,50};
+  cusor = {200,100,200,50};
 }
 
 Menu::~Menu(){}
@@ -15,7 +15,14 @@ void Menu::menu() {
   Vector2 endh = {25, 430};
 
   ClearBackground(SKYBLUE);
+  
   DrawText("Menu",345,25,50,BLACK);
+  DrawText("Easy", 200, 100, 50, BLACK);
+  DrawText("Medium", 200, 175, 50, BLACK);
+  DrawText("Hard", 200, 250, 50, BLACK);
+  DrawText("Endless", 450, 100, 50, BLACK);
+  DrawText("Credits", 450, 175, 50, BLACK);
+  DrawText("Quit", 450, 250, 50, BLACK);
 
   for(int i = 0; i < 2; i++){
    DrawLineEx(startw, endw, 10.0f, BLACK);
@@ -54,7 +61,19 @@ void Menu::menu() {
   else {
     cusor.y = cusor.y;
   }
-
-  DrawText("Easy", 345, 100, 50, BLACK);
   
+  if (cusor.x == 200 && IsKeyPressed(KEY_D) || cusor.x == 100 && IsKeyPressed(KEY_RIGHT)){
+    cusor.x = 450;
+  }
+  else if (cusor.y == 175 && IsKeyPressed(KEY_W) || cusor.y == 175 && IsKeyPressed(KEY_UP)){
+    cusor.y = 100;
+  }
+  else if (cusor.y == 250 && IsKeyPressed(KEY_W) || cusor.y == 250 && IsKeyPressed(KEY_UP)){
+    cusor.y = 175;
+  }
+  else {
+    cusor.y = cusor.y;
+  }
+
+      
 }
