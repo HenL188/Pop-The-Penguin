@@ -23,6 +23,7 @@ void Menu::menu() {
   DrawText("Endless", 450, 100, 50, BLACK);
   DrawText("Credits", 450, 175, 50, BLACK);
   DrawText("Quit", 450, 250, 50, BLACK);
+  
 
   for(int i = 0; i < 2; i++){
    DrawLineEx(startw, endw, 10.0f, BLACK);
@@ -45,11 +46,7 @@ void Menu::menu() {
   else if (cusor.y == 250 && IsKeyPressed(KEY_S) || cusor.y == 250 && IsKeyPressed(KEY_DOWN)){
     cusor.y = 100;
   }
-  else {
-    cusor.y = cusor.y;
-  }
-  
-  if (cusor.y == 100 && IsKeyPressed(KEY_W) || cusor.y == 100 && IsKeyPressed(KEY_UP)){
+  else if (cusor.y == 100 && IsKeyPressed(KEY_W) || cusor.y == 100 && IsKeyPressed(KEY_UP)){
     cusor.y = 250;
   }
   else if (cusor.y == 175 && IsKeyPressed(KEY_W) || cusor.y == 175 && IsKeyPressed(KEY_UP)){
@@ -62,18 +59,14 @@ void Menu::menu() {
     cusor.y = cusor.y;
   }
   
-  if (cusor.x == 200 && IsKeyPressed(KEY_D) || cusor.x == 100 && IsKeyPressed(KEY_RIGHT)){
+  if (cusor.x == 200 && IsKeyPressed(KEY_D) || cusor.x == 200 && IsKeyPressed(KEY_RIGHT)){
     cusor.x = 450;
   }
-  else if (cusor.y == 175 && IsKeyPressed(KEY_W) || cusor.y == 175 && IsKeyPressed(KEY_UP)){
-    cusor.y = 100;
-  }
-  else if (cusor.y == 250 && IsKeyPressed(KEY_W) || cusor.y == 250 && IsKeyPressed(KEY_UP)){
-    cusor.y = 175;
+  else if (cusor.x == 450 && IsKeyPressed(KEY_A) || cusor.x == 450 && IsKeyPressed(KEY_LEFT)){
+    cusor.x = 200;
   }
   else {
-    cusor.y = cusor.y;
+    cusor.x = cusor.x;
   }
-
-      
+        
 }
