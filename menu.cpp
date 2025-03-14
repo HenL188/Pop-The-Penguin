@@ -8,7 +8,7 @@ Menu::Menu() {
 Menu::~Menu(){}
 
 
-void Menu::menu() {
+void Menu::menu(Scene *scene) {
   Vector2 startw = {20, 20};
   Vector2 endw = {780, 20};
   Vector2 starth = {25, 20};

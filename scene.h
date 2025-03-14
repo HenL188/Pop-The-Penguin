@@ -2,22 +2,14 @@
 
 #include "raylib/include/raylib.h"
 #include "menu.h"
+#include "game.h"
 
 class SceneManager {
   public:
     SceneManager();
     ~SceneManager();
-    void scene_manager();
+    void scene_manager(Scene scene);
   private:
-    enum Scene {
-      menu,
-      easy,
-      medium,
-      hard,
-      endless,
-      end,
-    };
-    Scene scene;
     Menu m;
 };
 

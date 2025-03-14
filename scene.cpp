@@ -1,21 +1,17 @@
 #include "scene.h"
 
 
-SceneManager::SceneManager() {
-  scene = menu;
-}
-SceneManager::~SceneManager(){
-  
-}
+SceneManager::SceneManager() {}
+SceneManager::~SceneManager(){}
 
-void SceneManager::scene_manager() {
+void SceneManager::scene_manager(Scene scene) {
   switch (scene) {
   case menu:
-     m.menu();
+     m.menu(&scene);
       break;
   case easy:
      ClearBackground(SKYBLUE);
-     DrawText("menu",400,225,50,BLACK);
+     DrawText("easy",400,225,50,BLACK);
      break;
   case medium:
      ClearBackground(SKYBLUE);

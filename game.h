@@ -2,6 +2,15 @@
 
 #include "raylib/include/raylib.h"
 
+
+enum Scene {
+      menu,
+      easy,
+      medium,
+      hard,
+      endless,
+      end,
+    };
  
 class Game {
   public:

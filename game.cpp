@@ -10,15 +10,20 @@ Game::~Game(){
   CloseWindow();
 }
 
+
 void Game::run() {
+  
+    Scene scene;
+  
     InitWindow(screenW, screenH, "raylib [core] example - basic window");
 
-    SceneManager scene;
+    SceneManager manager;
+    scene = menu;
     
     while (!WindowShouldClose())
     {
         BeginDrawing();
-        scene.scene_manager();
+        manager.scene_manager(scene);
         EndDrawing();
     }
 }
