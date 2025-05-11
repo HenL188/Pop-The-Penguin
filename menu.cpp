@@ -1,14 +1,8 @@
 #include "menu.h"
 #include "raylib/include/raylib.h"
+#include <stdio.h>
 
-Menu::Menu() {
-  cusor = {200,100,200,50};
-}
-
-Menu::~Menu(){}
-
-
-void Menu::menu(Scene *scene) {
+void Menu(Scene scene, Rectangle *cusor) {
   Vector2 startw = {20, 20};
   Vector2 endw = {780, 20};
   Vector2 starth = {25, 20};
@@ -35,38 +29,46 @@ void Menu::menu(Scene *scene) {
   }
 
   Color color = {255,255,255,100};
-  DrawRectangleRec(cusor, color);
+  DrawRectangleRec(*cusor, color);
 
-  if (cusor.y == 100 && IsKeyPressed(KEY_S) || cusor.y == 100 && IsKeyPressed(KEY_DOWN)){
-    cusor.y = 175;
+  if (cusor->y == 100 && IsKeyPressed(KEY_S) || cusor->y == 100 && IsKeyPressed(KEY_DOWN)){
+    cusor->y = 175;
   }
-  else if (cusor.y == 175 && IsKeyPressed(KEY_S) || cusor.y == 175 && IsKeyPressed(KEY_DOWN)){
-    cusor.y = 250;
+  else if (cusor->y == 175 && IsKeyPressed(KEY_S) || cusor->y == 175 && IsKeyPressed(KEY_DOWN)){
+    cusor->y = 250;
   }
-  else if (cusor.y == 250 && IsKeyPressed(KEY_S) || cusor.y == 250 && IsKeyPressed(KEY_DOWN)){
-    cusor.y = 100;
+  else if (cusor->y == 250 && IsKeyPressed(KEY_S) || cusor->y == 250 && IsKeyPressed(KEY_DOWN)){
+    cusor->y = 100;
   }
-  else if (cusor.y == 100 && IsKeyPressed(KEY_W) || cusor.y == 100 && IsKeyPressed(KEY_UP)){
-    cusor.y = 250;
+  else if (cusor->y == 100 && IsKeyPressed(KEY_W) || cusor->y == 100 && IsKeyPressed(KEY_UP)){
+    cusor->y = 250;
   }
-  else if (cusor.y == 175 && IsKeyPressed(KEY_W) || cusor.y == 175 && IsKeyPressed(KEY_UP)){
-    cusor.y = 100;
+  else if (cusor->y == 175 && IsKeyPressed(KEY_W) || cusor->y == 175 && IsKeyPressed(KEY_UP)){
+    cusor->y = 100;
   }
-  else if (cusor.y == 250 && IsKeyPressed(KEY_W) || cusor.y == 250 && IsKeyPressed(KEY_UP)){
-    cusor.y = 175;
+  else if (cusor->y == 250 && IsKeyPressed(KEY_W) || cusor->y == 250 && IsKeyPressed(KEY_UP)){
+    cusor->y = 175;
   }
   else {
-    cusor.y = cusor.y;
+    cusor->y = cusor->y;
   }
   
-  if (cusor.x == 200 && IsKeyPressed(KEY_D) || cusor.x == 200 && IsKeyPressed(KEY_RIGHT)){
-    cusor.x = 450;
+  if (cusor->x == 200 && IsKeyPressed(KEY_D) || cusor->x == 200 && IsKeyPressed(KEY_RIGHT)){
+    cusor->x = 450;
   }
-  else if (cusor.x == 450 && IsKeyPressed(KEY_A) || cusor.x == 450 && IsKeyPressed(KEY_LEFT)){
-    cusor.x = 200;
+  else if (cusor->x == 450 && IsKeyPressed(KEY_A) || cusor->x == 450 && IsKeyPressed(KEY_LEFT)){
+    cusor->x = 200;
   }
   else {
-    cusor.x = cusor.x;
+    cusor->x = cusor->x;
+  }
+
+  if(IsKeyPressed(KEY_ENTER)){
+    printf("%i", scene);
+    
+     scene = easy;
+    printf("%i", scene);
+     
   }
         
 }

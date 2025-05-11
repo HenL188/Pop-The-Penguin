@@ -12,18 +12,20 @@ Game::~Game(){
 
 
 void Game::run() {
+
+    Rectangle cusor = {200,100,200,50};
+    
   
     Scene scene;
   
     InitWindow(screenW, screenH, "raylib [core] example - basic window");
 
-    SceneManager manager;
     scene = menu;
     
     while (!WindowShouldClose())
     {
         BeginDrawing();
-        manager.scene_manager(scene);
+        scene_manager(scene, &cusor);
         EndDrawing();
     }
 }

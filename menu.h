@@ -1,14 +1,8 @@
 #pragma once
 
 #include "raylib/include/raylib.h"
-#include "game.h"
+#include "scene.h"
 
-class Menu {
-  public:
-    Menu();
-    ~Menu();
-    void menu(Scene *scene);
-  private:
-    Rectangle cusor;
-};
+
+void Menu(Scene scene,Rectangle *cusor);
 

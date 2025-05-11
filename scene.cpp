@@ -1,13 +1,11 @@
 #include "scene.h"
+#include "menu.h"
 
 
-SceneManager::SceneManager() {}
-SceneManager::~SceneManager(){}
-
-void SceneManager::scene_manager(Scene scene) {
+void scene_manager(Scene scene,Rectangle *cusor ) {
   switch (scene) {
   case menu:
-     m.menu(&scene);
+     Menu(scene,cusor);
       break;
   case easy:
      ClearBackground(SKYBLUE);
