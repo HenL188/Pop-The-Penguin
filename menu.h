@@ -4,5 +4,5 @@
 #include "scene.h"
 
 
-void Menu(Scene scene,Rectangle *cusor);
+void Menu(S *scene,Rectangle *cusor);
 

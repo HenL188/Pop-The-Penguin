@@ -2,7 +2,7 @@
 #include "raylib/include/raylib.h"
 #include <stdio.h>
 
-void Menu(Scene scene, Rectangle *cusor) {
+void Menu(S *scene, Rectangle *cusor) {
   Vector2 startw = {20, 20};
   Vector2 endw = {780, 20};
   Vector2 starth = {25, 20};
@@ -64,11 +64,9 @@ void Menu(Scene scene, Rectangle *cusor) {
   }
 
   if(IsKeyPressed(KEY_ENTER)){
-    printf("%i", scene);
-    
-     scene = easy;
-    printf("%i", scene);
-     
+     printf("%i", scene->scene);
+     scene->scene = easy;
+     printf("%i", scene->scene);
   }
         
 }

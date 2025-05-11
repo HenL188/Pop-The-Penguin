@@ -2,16 +2,19 @@
 
 #include "raylib/include/raylib.h"
 
+enum Scene
+{
+  menu,
+  easy,
+  medium,
+  hard,
+  endless,
+  end,
+};
 
-enum Scene {
-      menu,
-      easy,
-      medium,
-      hard,
-      endless,
-      end,
-    };
+struct S
+{
+  Scene scene;
+};
 
-
-void scene_manager(Scene scene,Rectangle *cusor );
-
+void scene_manager(S *scene, Rectangle *cusor);
