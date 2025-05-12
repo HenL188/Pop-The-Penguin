@@ -13,4 +13,6 @@ class Mode {
     Mode();
   private:    
     bool draw;
+    int rand;
+    int rand2;
 };

@@ -17,7 +17,7 @@ void Game::run()
 
   Rectangle cusor = {200, 100, 200, 50};
 
-  S scene = {easy};
+  S scene = {menu};
   Mode mode;
 
   InitWindow(screenW, screenH, "Pop the Penguin");

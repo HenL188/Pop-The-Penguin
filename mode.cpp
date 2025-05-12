@@ -4,17 +4,25 @@
 
 Mode::Mode() {
   draw = true;
+  rand = GetRandomValue(100, 600);
+  rand2 = GetRandomValue(55, 355);
 }
 
 
 void Mode::easy(){
   ClearBackground(WHITE);
-  Vector2 mouse = GetMousePosition(); 
-  if (mouse.x >= 400 && mouse.x <= 450 && mouse.y >= 225 && mouse.y <= 275 &&  IsMouseButtonPressed(MOUSE_LEFT_BUTTON)){
+  Vector2 mouse = GetMousePosition();
+  Vector2 pop = {float(rand),float(rand2)};
+  if (mouse.x >= pop.x && mouse.x <= pop.x + 50 && mouse.y >= pop.y && mouse.y <= pop.y + 50 &&  IsMouseButtonPressed(MOUSE_LEFT_BUTTON)){
     draw = false;
   }
   if (draw == true){
-    DrawRectangle(400, 225, 50,50, RED);
+    DrawRectangleV(pop,Vector2{50,50}, RED);
+  }
+  if (draw == false){
+    rand = GetRandomValue(100, 600);
+    rand2 = GetRandomValue(55, 355);
+    draw = true;  
   }  
 }
 // void medium();
