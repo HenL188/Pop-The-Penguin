@@ -2,8 +2,15 @@
 
 #include "raylib/include/raylib.h"
 
-void Easy();
-void Medium();
-void Hard();
-void Endless();
-void Credits();
+
+class Mode {
+  public:
+    void easy();
+    void medium();
+    void hard();
+    void endless();
+    void credits();
+    Mode();
+  private:    
+    bool draw;
+};

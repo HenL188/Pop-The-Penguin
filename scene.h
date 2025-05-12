@@ -1,6 +1,7 @@
 #pragma once
 
 #include "raylib/include/raylib.h"
+#include "mode.h"
 
 enum Scene
 {
@@ -18,4 +19,4 @@ struct S
   Scene scene;
 };
 
-void scene_manager(S *scene, Rectangle *cusor);
+void scene_manager(S *scene, Rectangle *cusor, Mode *mode);

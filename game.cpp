@@ -17,14 +17,15 @@ void Game::run()
 
   Rectangle cusor = {200, 100, 200, 50};
 
-  S scene = {menu};
+  S scene = {easy};
+  Mode mode;
 
   InitWindow(screenW, screenH, "Pop the Penguin");
 
   while (!WindowShouldClose())
   {
     BeginDrawing();
-    scene_manager(&scene, &cusor);
+    scene_manager(&scene, &cusor, &mode);
     EndDrawing();
   }
 }

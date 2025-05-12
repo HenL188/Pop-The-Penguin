@@ -1,10 +1,9 @@
 #include "scene.h"
 #include "menu.h"
-#include "mode.h"
 
 #include <stdlib.h>
 
-void scene_manager(S *scene, Rectangle *cusor)
+void scene_manager(S *scene, Rectangle *cusor, Mode *mode)
 {
    switch (scene->scene)
    {
@@ -12,7 +11,7 @@ void scene_manager(S *scene, Rectangle *cusor)
       Menu(scene, cusor);
       break;
    case easy:
-      Easy();
+      mode->easy();
       break;
    case medium:
       ClearBackground(SKYBLUE);
