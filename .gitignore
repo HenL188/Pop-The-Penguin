@@ -1,3 +1,4 @@
 raylib/
 *.o
 *.exe
+*.ps1

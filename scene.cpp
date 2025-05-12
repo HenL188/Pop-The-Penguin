@@ -1,5 +1,6 @@
 #include "scene.h"
 #include "menu.h"
+#include "mode.h"
 
 #include <stdlib.h>
 
@@ -11,8 +12,7 @@ void scene_manager(S *scene, Rectangle *cusor)
       Menu(scene, cusor);
       break;
    case easy:
-      ClearBackground(SKYBLUE);
-      DrawText("easy", 400, 225, 50, BLACK);
+      Easy();
       break;
    case medium:
       ClearBackground(SKYBLUE);
