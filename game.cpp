@@ -19,7 +19,7 @@ void Game::run()
 
   S scene = {menu};
 
-  InitWindow(screenW, screenH, "Pop the Peguin");
+  InitWindow(screenW, screenH, "Pop the Penguin");
 
   while (!WindowShouldClose())
   {
