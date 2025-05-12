@@ -1,6 +1,8 @@
 #include "scene.h"
 #include "menu.h"
 
+#include <stdlib.h>
+
 void scene_manager(S *scene, Rectangle *cusor)
 {
    switch (scene->scene)
@@ -14,19 +16,24 @@ void scene_manager(S *scene, Rectangle *cusor)
       break;
    case medium:
       ClearBackground(SKYBLUE);
-      DrawText("menu", 400, 225, 50, BLACK);
+      DrawText("medium", 400, 225, 50, BLACK);
       break;
    case hard:
       ClearBackground(SKYBLUE);
-      DrawText("menu", 400, 225, 50, BLACK);
+      DrawText("hard", 400, 225, 50, BLACK);
       break;
    case endless:
       ClearBackground(SKYBLUE);
-      DrawText("menu", 400, 225, 50, BLACK);
+      DrawText("endless", 400, 225, 50, BLACK);
       break;
-   case end:
+   case credits:
       ClearBackground(SKYBLUE);
-      DrawText("menu", 400, 225, 50, BLACK);
+      DrawText("credits", 400, 225, 50, BLACK);
+      break;
+   case quit:
+      WindowShouldClose();
+      CloseWindow();
+      exit(0);
       break;
    }
 }

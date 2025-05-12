@@ -9,7 +9,8 @@ enum Scene
   medium,
   hard,
   endless,
-  end,
+  quit,
+  credits,
 };
 
 struct S

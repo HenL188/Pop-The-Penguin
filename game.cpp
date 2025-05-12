@@ -19,7 +19,7 @@ void Game::run()
 
   S scene = {menu};
 
-  InitWindow(screenW, screenH, "raylib [core] example - basic window");
+  InitWindow(screenW, screenH, "Pop the Peguin");
 
   while (!WindowShouldClose())
   {

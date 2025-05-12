@@ -1,3 +1,5 @@
+CFLAGS := -L./raylib/lib -l:libraylib.a -lopengl32 -lgdi32 -lwinmm -O2
+
 all: game run
 
 main.o: main.cpp
@@ -13,7 +15,7 @@ scene.o: scene.cpp
 	g++ -c scene.cpp
 
 game: main.o game.o menu.o scene.o
-	g++ *.o -o game -L./raylib/lib -l:libraylib.a -lopengl32 -lgdi32 -lwinmm
-
+	g++ *.o -o game $(CFLAGS)
+	 
 run: game
 	./game

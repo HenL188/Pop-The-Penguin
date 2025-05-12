@@ -1,6 +1,6 @@
 #include "menu.h"
 #include "raylib/include/raylib.h"
-#include <stdio.h>
+#include "scene.h"
 
 void Menu(S *scene, Rectangle *cusor) {
   Vector2 startw = {20, 20};
@@ -32,7 +32,7 @@ void Menu(S *scene, Rectangle *cusor) {
   DrawRectangleRec(*cusor, color);
 
   if (cusor->y == 100 && IsKeyPressed(KEY_S) || cusor->y == 100 && IsKeyPressed(KEY_DOWN)){
-    cusor->y = 175;
+    cusor->y = 175;  
   }
   else if (cusor->y == 175 && IsKeyPressed(KEY_S) || cusor->y == 175 && IsKeyPressed(KEY_DOWN)){
     cusor->y = 250;
@@ -63,10 +63,11 @@ void Menu(S *scene, Rectangle *cusor) {
     cusor->x = cusor->x;
   }
 
-  if(IsKeyPressed(KEY_ENTER)){
-     printf("%i", scene->scene);
-     scene->scene = easy;
-     printf("%i", scene->scene);
-  }
-        
+  if (cusor->y == 100 && cusor->x == 200 && IsKeyPressed(KEY_ENTER)) scene->scene = easy; 
+  else if (cusor->y == 175 && cusor->x == 200 && IsKeyPressed(KEY_ENTER)) scene->scene = medium;
+  else if (cusor->y == 250 && cusor->x == 200 && IsKeyPressed(KEY_ENTER)) scene->scene = hard;
+  else if (cusor->y == 100 && cusor->x == 450 && IsKeyPressed(KEY_ENTER)) scene->scene = endless; 
+  else if (cusor->y == 175 && cusor->x == 450 && IsKeyPressed(KEY_ENTER)) scene->scene = credits;
+  else if (cusor->y == 250 && cusor->x == 450 && IsKeyPressed(KEY_ENTER)) scene->scene = quit;
+  else {;}          
 }
