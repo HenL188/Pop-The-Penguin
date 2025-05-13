@@ -1,5 +1,6 @@
 #include "scene.h"
 #include "menu.h"
+#include "misc.h"
 
 #include <stdlib.h>
 
@@ -11,7 +12,7 @@ void scene_manager(S *scene, Rectangle *cusor, Mode *mode)
       Menu(scene, cusor);
       break;
    case easy:
-      mode->easy();
+      mode->easy(scene);
       break;
    case medium:
       ClearBackground(SKYBLUE);
@@ -28,6 +29,9 @@ void scene_manager(S *scene, Rectangle *cusor, Mode *mode)
    case credits:
       ClearBackground(SKYBLUE);
       DrawText("credits", 400, 225, 50, BLACK);
+      break;
+   case gameover:
+      Gameover(scene, mode);
       break;
    case quit:
       WindowShouldClose();

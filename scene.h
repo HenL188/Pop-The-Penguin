@@ -12,6 +12,7 @@ enum Scene
   endless,
   quit,
   credits,
+  gameover,
 };
 
 struct S

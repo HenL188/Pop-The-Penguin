@@ -1,6 +1,6 @@
 #include "mode.h"
 #include "raylib/include/raylib.h"
-
+#include "scene.h"
 
 Mode::Mode() {
   draw = true;
@@ -10,7 +10,7 @@ Mode::Mode() {
   lives = 5;
 }
 
-void Mode::easy(){
+void Mode::easy(S *scene){
   ClearBackground(WHITE);
   DrawText(TextFormat("Score: %i", score), 250, 30 , 30, BLACK);
   DrawText(TextFormat("Lives: %i", lives), 450, 30, 30, BLACK);
@@ -27,9 +27,12 @@ void Mode::easy(){
     rand = GetRandomValue(55, 755);
     rand2 = GetRandomValue(55, 355);
     draw = true;  
-  }  
+  }
+  if (lives == 0){
+    scene->scene = gameover;
+  }
 }
 // void medium();
 // void hard();
 // void endless();
-// void credits();
+

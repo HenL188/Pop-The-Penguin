@@ -17,7 +17,10 @@ scene.o: scene.cpp
 mode.o: mode.cpp
 	g++ -c mode.cpp
 
-game: main.o game.o menu.o scene.o mode.o
+misc.o: misc.cpp
+	g++ -c misc.cpp
+
+game: main.o game.o menu.o scene.o mode.o misc.o
 	g++ *.o -o game $(CXXFLAGS)
 	 
 run: game
