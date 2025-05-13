@@ -15,4 +15,6 @@ class Mode {
     bool draw;
     int rand;
     int rand2;
+    int score;
+    int lives;
 };

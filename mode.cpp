@@ -4,23 +4,27 @@
 
 Mode::Mode() {
   draw = true;
-  rand = GetRandomValue(100, 600);
+  rand = GetRandomValue(55, 755);
   rand2 = GetRandomValue(55, 355);
+  score = 0;
+  lives = 5;
 }
-
 
 void Mode::easy(){
   ClearBackground(WHITE);
+  DrawText(TextFormat("Score: %i", score), 250, 30 , 30, BLACK);
+  DrawText(TextFormat("Lives: %i", lives), 450, 30, 30, BLACK);
   Vector2 mouse = GetMousePosition();
-  Vector2 pop = {float(rand),float(rand2)};
+  Rectangle pop = {float(rand),float(rand2),50 ,50};
   if (mouse.x >= pop.x && mouse.x <= pop.x + 50 && mouse.y >= pop.y && mouse.y <= pop.y + 50 &&  IsMouseButtonPressed(MOUSE_LEFT_BUTTON)){
     draw = false;
+    score += 1;
   }
-  if (draw == true){
-    DrawRectangleV(pop,Vector2{50,50}, RED);
-  }
+  else if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) lives -= 1;
+  else {;}
+  if (draw == true) DrawRectangleRec(pop, RED);
   if (draw == false){
-    rand = GetRandomValue(100, 600);
+    rand = GetRandomValue(55, 755);
     rand2 = GetRandomValue(55, 355);
     draw = true;  
   }  
