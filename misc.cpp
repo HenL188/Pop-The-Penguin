@@ -7,3 +7,4 @@ void Gameover(S *scene, Mode *m){
    DrawText(TextFormat("Score: %i", m->score),300,225,50,BLACK);
    if (IsKeyPressed(KEY_ENTER)) scene->scene = menu;
 }
+

@@ -1,14 +1,18 @@
 #include "mode.h"
 #include "raylib/include/raylib.h"
 #include "scene.h"
+#include "timer.h"
+#include <cstdio>
 
 Mode::Mode() {
   draw = true;
-  rand = GetRandomValue(55, 755);
-  rand2 = GetRandomValue(55, 355);
+  rand = 400;
+  rand2 = 225;
   score = 0;
   lives = 5;
+  StartTimer(&timer, 5);
 }
+
 
 void Mode::easy(S *scene){
   ClearBackground(WHITE);
@@ -30,6 +34,13 @@ void Mode::easy(S *scene){
   }
   if (lives == 0){
     scene->scene = gameover;
+  }
+  if (TimerDone(timer) == true){
+    draw = false;
+    StartTimer(&timer, 5);
+  }
+  else {
+    draw = true;
   }
 }
 // void medium();

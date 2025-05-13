@@ -15,6 +15,8 @@ Game::~Game()
 void Game::run()
 {
 
+  SetTargetFPS(60);
+
   Rectangle cusor = {200, 100, 200, 50};
 
   S scene = {menu};

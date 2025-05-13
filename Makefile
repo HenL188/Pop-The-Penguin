@@ -1,4 +1,4 @@
-CXXFLAGS := -L./raylib/lib -l:libraylib.a -lopengl32 -lgdi32 -lwinmm -O2
+CXXFLAGS := -L./raylib/lib -l:libraylib.a -lopengl32 -lgdi32 -lwinmm -O2 
 
 all: game run
 
@@ -20,7 +20,10 @@ mode.o: mode.cpp
 misc.o: misc.cpp
 	g++ -c misc.cpp
 
-game: main.o game.o menu.o scene.o mode.o misc.o
+timer.o:
+	g++ -c timer.cpp
+
+game: main.o game.o menu.o scene.o mode.o misc.o timer.o
 	g++ *.o -o game $(CXXFLAGS)
 	 
 run: game

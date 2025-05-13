@@ -1,8 +1,10 @@
 #pragma once
 
 #include "raylib/include/raylib.h"
+#include "timer.h"
 
 struct S;
+
 
 class Mode
 {
@@ -19,4 +21,5 @@ private:
   int rand;
   int rand2;
   int lives;
+  Timer timer;
 };
