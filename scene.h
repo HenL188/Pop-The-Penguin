@@ -20,4 +20,4 @@ struct S
   Scene scene;
 };
 
-void scene_manager(S *scene, Rectangle *cusor, Mode *mode);
+void scene_manager(S *scene, Rectangle *cusor, Mode *mode, Texture2D background);

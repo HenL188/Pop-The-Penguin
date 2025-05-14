@@ -20,7 +20,7 @@ mode.o: mode.cpp
 misc.o: misc.cpp
 	g++ -c misc.cpp
 
-timer.o:
+timer.o: timer.cpp
 	g++ -c timer.cpp
 
 game: main.o game.o menu.o scene.o mode.o misc.o timer.o

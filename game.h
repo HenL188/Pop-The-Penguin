@@ -10,4 +10,5 @@ class Game {
   private:
     int screenW;
     int screenH;
+    Texture2D background;
 };

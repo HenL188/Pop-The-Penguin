@@ -1,10 +1,11 @@
 #include "scene.h"
 #include "menu.h"
 #include "misc.h"
+#include "raylib/include/raylib.h"
 
 #include <stdlib.h>
 
-void scene_manager(S *scene, Rectangle *cusor, Mode *mode)
+void scene_manager(S *scene, Rectangle *cusor, Mode *mode, Texture2D background)
 {
    switch (scene->scene)
    {
@@ -12,7 +13,7 @@ void scene_manager(S *scene, Rectangle *cusor, Mode *mode)
       Menu(scene, cusor);
       break;
    case easy:
-      mode->easy(scene);
+      mode->easy(scene, background);
       break;
    case medium:
       ClearBackground(SKYBLUE);
@@ -35,6 +36,7 @@ void scene_manager(S *scene, Rectangle *cusor, Mode *mode)
       break;
    case quit:
       WindowShouldClose();
+      UnloadTexture(background);
       CloseWindow();
       exit(0);
       break;

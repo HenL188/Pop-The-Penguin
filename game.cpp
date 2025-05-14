@@ -9,6 +9,7 @@ Game::Game()
 
 Game::~Game()
 {
+  UnloadTexture(background);
   CloseWindow();
 }
 
@@ -23,11 +24,12 @@ void Game::run()
   Mode mode;
 
   InitWindow(screenW, screenH, "Pop the Penguin");
+  background = LoadTexture("assets/background.png");
 
   while (!WindowShouldClose())
   {
     BeginDrawing();
-    scene_manager(&scene, &cusor, &mode);
+    scene_manager(&scene, &cusor, &mode, background);
     EndDrawing();
   }
 }
