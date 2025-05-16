@@ -5,7 +5,7 @@
 
 #include <stdlib.h>
 
-void scene_manager(S *scene, Rectangle *cusor, Mode *mode, Texture2D background)
+void scene_manager(S *scene, Rectangle *cusor, Mode *mode, Texture2D background, Texture2D penguin)
 {
    switch (scene->scene)
    {
@@ -13,7 +13,7 @@ void scene_manager(S *scene, Rectangle *cusor, Mode *mode, Texture2D background)
       Menu(scene, cusor);
       break;
    case easy:
-      mode->easy(scene, background);
+      mode->easy(scene, background, penguin);
       break;
    case medium:
       ClearBackground(SKYBLUE);

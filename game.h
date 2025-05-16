@@ -11,4 +11,5 @@ class Game {
     int screenW;
     int screenH;
     Texture2D background;
+    Texture2D penguin;
 };

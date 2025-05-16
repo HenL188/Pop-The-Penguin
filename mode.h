@@ -10,7 +10,7 @@ class Mode
 {
 public:
   int score;
-  void easy(S *scene, Texture2D background);
+  void easy(S *scene, Texture2D background, Texture2D penguin);
   void medium();
   void hard();
   void endless();
