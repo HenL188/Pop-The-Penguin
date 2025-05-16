@@ -7,6 +7,7 @@ void Menu(S *scene, Rectangle *cusor) {
   Vector2 endw = {780, 20};
   Vector2 starth = {25, 20};
   Vector2 endh = {25, 430};
+  Vector2 mouse = GetMousePosition();
 
   ClearBackground(SKYBLUE);
   
@@ -69,5 +70,5 @@ void Menu(S *scene, Rectangle *cusor) {
   else if (cusor->y == 100 && cusor->x == 450 && IsKeyPressed(KEY_ENTER)) scene->scene = endless; 
   else if (cusor->y == 175 && cusor->x == 450 && IsKeyPressed(KEY_ENTER)) scene->scene = credits;
   else if (cusor->y == 250 && cusor->x == 450 && IsKeyPressed(KEY_ENTER)) scene->scene = quit;
-  else {;}          
+  else {;}        
 }

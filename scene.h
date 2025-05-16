@@ -20,4 +20,10 @@ struct S
   Scene scene;
 };
 
-void scene_manager(S *scene, Rectangle *cusor, Mode *mode, Texture2D background, Texture2D penguin);
+struct Data{
+  Texture2D background;
+  Texture2D penguin;
+  Sound pop;
+};
+
+void scene_manager(S *scene, Rectangle *cusor, Mode *mode, Data *data);

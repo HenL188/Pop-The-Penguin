@@ -1,4 +1,5 @@
 #include "game.h"
+#include "raylib/include/raylib.h"
 #include "scene.h"
 
 Game::Game()
@@ -9,9 +10,6 @@ Game::Game()
 
 Game::~Game()
 {
-  UnloadTexture(background);
-  UnloadTexture(penguin);
-  CloseWindow();
 }
 
 void Game::run()
@@ -23,15 +21,26 @@ void Game::run()
 
   S scene = {menu};
   Mode mode;
+  Data data;
 
   InitWindow(screenW, screenH, "Pop the Penguin");
-  background = LoadTexture("assets/background.png");
-  penguin = LoadTexture("assets/peguin.png");
+  InitAudioDevice();
+
+  data.pop = LoadSound("assets/pop.mp3"); 
+
+  data.background = LoadTexture("assets/background.png");
+  data.penguin = LoadTexture("assets/peguin.png");
 
   while (!WindowShouldClose())
   {
     BeginDrawing();
-    scene_manager(&scene, &cusor, &mode, background, penguin);
+    scene_manager(&scene, &cusor, &mode, &data);
     EndDrawing();
   }
+
+  UnloadSound(data.pop);
+  UnloadTexture(data.background);
+  UnloadTexture(data.penguin);
+  CloseAudioDevice();
+  CloseWindow();
 }

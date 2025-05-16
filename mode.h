@@ -4,13 +4,13 @@
 #include "timer.h"
 
 struct S;
-
+struct Data;
 
 class Mode
 {
 public:
   int score;
-  void easy(S *scene, Texture2D background, Texture2D penguin);
+  void easy(S *scene, Data *data);
   void medium();
   void hard();
   void endless();
