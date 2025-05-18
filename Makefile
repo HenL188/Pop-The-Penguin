@@ -1,4 +1,4 @@
-CXXFLAGS := -L./raylib/lib -l:libraylib.a -lopengl32 -lgdi32 -lwinmm -O2 
+CXXFLAGS := -L./raylib/lib -l:libraylib.a -lopengl32 -lgdi32 -lwinmm -O2 -mwindows 
 
 all: game run
 
