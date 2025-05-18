@@ -18,6 +18,7 @@ public:
 
 private:
   bool draw;
+  bool start;
   int rand;
   int rand2;
   int lives;
