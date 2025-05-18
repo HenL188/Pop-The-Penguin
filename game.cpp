@@ -21,26 +21,27 @@ void Game::run()
 
   S scene = {menu};
   Mode mode;
-  Data data;
+  Data *data = new Data;
 
   InitWindow(screenW, screenH, "Pop the Penguin");
   InitAudioDevice();
 
-  data.pop = LoadSound("assets/pop.mp3"); 
-
-  data.background = LoadTexture("assets/background.png");
-  data.penguin = LoadTexture("assets/peguin.png");
-
+  data->pop = LoadSound("assets/pop.mp3");
+  data->background = LoadTexture("assets/background.png");
+  data->penguin = LoadTexture("assets/peguin.png");
+  
+  
   while (!WindowShouldClose())
   {
     BeginDrawing();
-    scene_manager(&scene, &cusor, &mode, &data);
+    scene_manager(&scene, &cusor, &mode, data);
     EndDrawing();
   }
 
-  UnloadSound(data.pop);
-  UnloadTexture(data.background);
-  UnloadTexture(data.penguin);
+  UnloadSound(data->pop);
+  UnloadTexture(data->background);
+  UnloadTexture(data->penguin);
   CloseAudioDevice();
   CloseWindow();
+  delete data;
 }
