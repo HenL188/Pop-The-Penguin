@@ -10,12 +10,16 @@ Mode::Mode()
   rand2 = 225;
   score = 0;
   lives = 5;
-  StartTimer(&timer, 5);
+  start = true;
 }
 
 void Mode::easy(S *scene, Data *data)
 {
   ClearBackground(WHITE);
+  if (start) {
+    StartTimer(&timer, 3);
+    start = false;
+  }
   DrawTexture(data->background, 0, 0, WHITE);
   DrawText(TextFormat("Score: %i", score), 250, 30, 30, BLACK);
   DrawText(TextFormat("Lives: %i", lives), 450, 30, 30, BLACK);
@@ -27,7 +31,7 @@ void Mode::easy(S *scene, Data *data)
     PlaySound(data->pop);
     draw = false;
     score += 1;
-    StartTimer(&timer, 5);
+    StartTimer(&timer, 3);
   }
   else if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
     lives -= 1;
@@ -36,7 +40,7 @@ void Mode::easy(S *scene, Data *data)
   
   if (draw == true){
     DrawRectangleRec(hitbox, BLANK);
-    DrawTextureEx(data->penguin,ex, 0, 2, WHITE);
+    DrawTextureEx(data->penguin, ex, 0, 2, WHITE);
   }
   if (draw == false)
   {
@@ -51,7 +55,8 @@ void Mode::easy(S *scene, Data *data)
   if (TimerDone(timer))
   {
     draw = false;
-    StartTimer(&timer, 5);
+    lives -= 1;
+    StartTimer(&timer, 3);
   }
   else
   {
