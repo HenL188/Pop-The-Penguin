@@ -32,6 +32,33 @@ void Menu(S *scene, Rectangle *cusor) {
   Color color = {255,255,255,100};
   DrawRectangleRec(*cusor, color);
 
+  DrawCircleV(mouse, 1, BLANK);
+
+  if (mouse.y >= 100 && mouse.y <= 150 && mouse.x >= 200 && mouse.x <= 450){
+    cusor->x = 200;
+    cusor->y = 100;
+  }
+  else if (mouse.y >= 175 && mouse.y <= 250 && mouse.x >= 200 && mouse.x <= 450) {
+    cusor->x = 200;
+    cusor->y = 175;
+  }
+  else if (mouse.y >= 250 && mouse.y <= 325 && mouse.x >= 200 && mouse.x <= 450){
+    cusor->x = 200;
+    cusor->y = 250;
+  }
+  else if (mouse.y >= 100 && mouse.y <= 150 && mouse.x >= 450 && mouse.x <= 700){
+    cusor->x = 450;
+    cusor->y = 100;
+  }
+  else if (mouse.y >= 175 && mouse.y <= 250 && mouse.x >= 450 && mouse.x <= 700){
+    cusor->x = 450;
+    cusor->y = 175;
+  }
+  else if (mouse.y >= 250 && mouse.y <= 325 && mouse.x >= 450 && mouse.x <= 700){
+    cusor->x = 450;
+    cusor->y = 250;
+  }
+
   if (cusor->y == 100 && IsKeyPressed(KEY_S) || cusor->y == 100 && IsKeyPressed(KEY_DOWN)){
     cusor->y = 175;  
   }
