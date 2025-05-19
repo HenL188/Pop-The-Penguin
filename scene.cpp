@@ -5,7 +5,7 @@
 
 #include <stdlib.h>
 
-void scene_manager(Data *data, Mode *mode, Assets *assests)
+void scene_manager(Data *data, Mode *mode, Assets *assets)
 {
    switch (data->scene)
    {
@@ -13,7 +13,7 @@ void scene_manager(Data *data, Mode *mode, Assets *assests)
       Menu(data);
       break;
    case easy:
-      mode->easy(data, assests);
+      mode->easy(data, assets);
       break;
    case medium:
       ClearBackground(SKYBLUE);
@@ -24,8 +24,7 @@ void scene_manager(Data *data, Mode *mode, Assets *assests)
       DrawText("hard", 400, 225, 50, BLACK);
       break;
    case endless:
-      ClearBackground(SKYBLUE);
-      DrawText("endless", 400, 225, 50, BLACK);
+      mode->endless(data, assets);
       break;
    case gameover:
       ClearBackground(WHITE);
@@ -37,9 +36,9 @@ void scene_manager(Data *data, Mode *mode, Assets *assests)
       break;
    case quit:
       WindowShouldClose();
-      UnloadTexture(assests->background);
-      UnloadTexture(assests->penguin);
-      UnloadSound(assests->pop);
+      UnloadTexture(assets->background);
+      UnloadTexture(assets->penguin);
+      UnloadSound(assets->pop);
       CloseWindow();
       exit(0);
       break;

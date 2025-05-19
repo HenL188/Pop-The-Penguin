@@ -11,9 +11,9 @@ class Mode
 public:
   int score;
   void easy(Data *data, Assets *assets);
-  void medium();
-  void hard();
-  void endless();
+  void medium(Data *data, Assets *assets);
+  void hard(Data *data, Assets *assets);
+  void endless(Data *data, Assets *assets);
   Mode();
 
 private:
