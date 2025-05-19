@@ -1,3 +1,5 @@
+#include <thread>
+
 #include "game.h"
 #include "raylib/include/raylib.h"
 #include "scene.h"
@@ -24,13 +26,17 @@ void Game::run()
   Data *data = new Data;
 
   InitWindow(screenW, screenH, "Pop the Penguin");
+  BeginDrawing();
+  ClearBackground(WHITE);
+  DrawText("Loading...", 300, 125, 50, BLACK);
+  EndDrawing();
+
   InitAudioDevice();
 
   data->pop = LoadSound("assets/pop.mp3");
   data->background = LoadTexture("assets/background.png");
   data->penguin = LoadTexture("assets/peguin.png");
-  
-  
+
   while (!WindowShouldClose())
   {
     BeginDrawing();
