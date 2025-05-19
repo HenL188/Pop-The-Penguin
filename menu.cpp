@@ -1,5 +1,6 @@
 #include "menu.h"
 #include "raylib/include/raylib.h"
+#include "scene.h"
 
 
 void Menu(Data *data) {
@@ -57,6 +58,27 @@ void Menu(Data *data) {
   else if (mouse.y >= 250 && mouse.y <= 325 && mouse.x >= 450 && mouse.x <= 700){
     data->cusor->x = 450;
     data->cusor->y = 250;
+  }
+  else {;}
+
+  data->collision = CheckCollisionCircleRec(mouse, 1, *data->cusor);
+  if (data->collision && data->cusor->y == 100 && data->cusor->x == 200 && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)){
+    data->scene = easy;
+  }
+  else if (data->collision && data->cusor->y == 175 && data->cusor->x == 200 && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+    data->scene = medium;
+  }
+  else if (data->collision && data->cusor->y == 250 && data->cusor->x == 200 && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+    data->scene = hard;
+  }
+  else if (data->collision && data->cusor->y == 100 && data->cusor->x == 450 && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+    data->scene = endless;
+  }
+  else if (data->collision && data->cusor->y == 175 && data->cusor->x == 450 && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+    data->scene = credits;
+  }
+  else if (data->collision && data->cusor->y == 250 && data->cusor->x == 450 && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+    data->scene = quit;
   }
   else {;}
 

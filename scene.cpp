@@ -32,6 +32,8 @@ void scene_manager(Data *data, Mode *mode, Assets *assests)
       Gameover(data, mode);
       break;
    case credits:
+      ClearBackground(SKYBLUE);
+      DrawText("Credits", 400, 225, 50, BLACK);
       break;
    case quit:
       WindowShouldClose();
