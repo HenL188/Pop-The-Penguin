@@ -13,22 +13,22 @@ Mode::Mode()
   start = true;
 }
 
-void Mode::easy(S *scene, Data *data)
+void Mode::easy(Data *data, Assets *assets)
 {
   ClearBackground(WHITE);
   if (start) {
     StartTimer(&timer, 3);
     start = false;
   }
-  DrawTexture(data->background, 0, 0, WHITE);
+  DrawTexture(assets->background, 0, 0, WHITE);
   DrawText(TextFormat("Score: %i", score), 250, 30, 30, BLACK);
   DrawText(TextFormat("Lives: %i", lives), 450, 30, 30, BLACK);
   Vector2 mouse = GetMousePosition();
-  Rectangle hitbox = {float(rand), float(rand2), float(data->penguin.width), float(data->penguin.height)};
+  Rectangle hitbox = {float(rand), float(rand2), float(assets->penguin.width), float(assets->penguin.height)};
   Vector2 ex = {float(rand), float(rand2)};
   if (mouse.x >= hitbox.x && mouse.x <= hitbox.x + 50 && mouse.y >= hitbox.y && mouse.y <= hitbox.y + 50 && IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
   {
-    PlaySound(data->pop);
+    PlaySound(assets->pop);
     draw = false;
     score += 1;
     StartTimer(&timer, 3);
@@ -40,7 +40,7 @@ void Mode::easy(S *scene, Data *data)
   
   if (draw == true){
     DrawRectangleRec(hitbox, BLANK);
-    DrawTextureEx(data->penguin, ex, 0, 2, WHITE);
+    DrawTextureEx(assets->penguin, ex, 0, 2, WHITE);
   }
   if (draw == false)
   {
@@ -50,7 +50,7 @@ void Mode::easy(S *scene, Data *data)
   }
   if (lives == 0)
   {
-    scene->scene = gameover;
+    data->scene = gameover;
   }
   if (TimerDone(timer))
   {

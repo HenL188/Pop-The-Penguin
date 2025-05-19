@@ -3,5 +3,5 @@
 #include "raylib/include/raylib.h"
 #include "scene.h"
 
-void Gameover(S *scene, Mode *m);
+void Gameover(Data *data, Mode *m);
 void Credits();

@@ -3,14 +3,14 @@
 #include "raylib/include/raylib.h"
 #include "timer.h"
 
-struct S;
 struct Data;
+struct Assets;
 
 class Mode
 {
 public:
   int score;
-  void easy(S *scene, Data *data);
+  void easy(Data *data, Assets *assets);
   void medium();
   void hard();
   void endless();

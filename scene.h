@@ -15,15 +15,17 @@ enum Scene
   gameover,
 };
 
-struct S
+struct Data
 {
   Scene scene;
+  Rectangle *cusor;
+  bool collision;
 };
 
-struct Data{
+struct Assets{
   Texture2D background;
   Texture2D penguin;
   Sound pop;
 };
 
-void scene_manager(S *scene, Rectangle *cusor, Mode *mode, Data *data);
+void scene_manager(Data *data, Mode *mode, Assets *assets);

@@ -5,15 +5,15 @@
 
 #include <stdlib.h>
 
-void scene_manager(S *scene, Rectangle *cusor, Mode *mode, Data *data)
+void scene_manager(Data *data, Mode *mode, Assets *assests)
 {
-   switch (scene->scene)
+   switch (data->scene)
    {
    case menu:
-      Menu(scene, cusor);
+      Menu(data);
       break;
    case easy:
-      mode->easy(scene, data);
+      mode->easy(data, assests);
       break;
    case medium:
       ClearBackground(SKYBLUE);
@@ -27,18 +27,17 @@ void scene_manager(S *scene, Rectangle *cusor, Mode *mode, Data *data)
       ClearBackground(SKYBLUE);
       DrawText("endless", 400, 225, 50, BLACK);
       break;
-   case credits:
-      ClearBackground(SKYBLUE);
-      DrawText("credits", 400, 225, 50, BLACK);
-      break;
    case gameover:
-      Gameover(scene, mode);
+      ClearBackground(WHITE);
+      Gameover(data, mode);
+      break;
+   case credits:
       break;
    case quit:
       WindowShouldClose();
-      UnloadTexture(data->background);
-      UnloadTexture(data->penguin);
-      UnloadSound(data->pop);
+      UnloadTexture(assests->background);
+      UnloadTexture(assests->penguin);
+      UnloadSound(assests->pop);
       CloseWindow();
       exit(0);
       break;

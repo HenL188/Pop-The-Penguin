@@ -1,8 +1,8 @@
 #include "menu.h"
 #include "raylib/include/raylib.h"
-#include "scene.h"
 
-void Menu(S *scene, Rectangle *cusor) {
+
+void Menu(Data *data) {
   Vector2 startw = {20, 20};
   Vector2 endw = {780, 20};
   Vector2 starth = {25, 20};
@@ -30,72 +30,73 @@ void Menu(S *scene, Rectangle *cusor) {
   }
 
   Color color = {255,255,255,100};
-  DrawRectangleRec(*cusor, color);
+  DrawRectangleRec(*data->cusor, color);
 
   DrawCircleV(mouse, 1, BLANK);
 
   if (mouse.y >= 100 && mouse.y <= 150 && mouse.x >= 200 && mouse.x <= 450){
-    cusor->x = 200;
-    cusor->y = 100;
+    data->cusor->x = 200;
+    data->cusor->y = 100;
   }
   else if (mouse.y >= 175 && mouse.y <= 250 && mouse.x >= 200 && mouse.x <= 450) {
-    cusor->x = 200;
-    cusor->y = 175;
+    data->cusor->x = 200;
+    data->cusor->y = 175;
   }
   else if (mouse.y >= 250 && mouse.y <= 325 && mouse.x >= 200 && mouse.x <= 450){
-    cusor->x = 200;
-    cusor->y = 250;
+    data->cusor->x = 200;
+    data->cusor->y = 250;
   }
   else if (mouse.y >= 100 && mouse.y <= 150 && mouse.x >= 450 && mouse.x <= 700){
-    cusor->x = 450;
-    cusor->y = 100;
+    data->cusor->x = 450;
+    data->cusor->y = 100;
   }
   else if (mouse.y >= 175 && mouse.y <= 250 && mouse.x >= 450 && mouse.x <= 700){
-    cusor->x = 450;
-    cusor->y = 175;
+    data->cusor->x = 450;
+    data->cusor->y = 175;
   }
   else if (mouse.y >= 250 && mouse.y <= 325 && mouse.x >= 450 && mouse.x <= 700){
-    cusor->x = 450;
-    cusor->y = 250;
+    data->cusor->x = 450;
+    data->cusor->y = 250;
   }
+  else {;}
 
-  if (cusor->y == 100 && IsKeyPressed(KEY_S) || cusor->y == 100 && IsKeyPressed(KEY_DOWN)){
-    cusor->y = 175;  
+  if (data->cusor->y == 100 && IsKeyPressed(KEY_S) || data->cusor->y == 100 && IsKeyPressed(KEY_DOWN)){
+    data->cusor->y = 175;  
   }
-  else if (cusor->y == 175 && IsKeyPressed(KEY_S) || cusor->y == 175 && IsKeyPressed(KEY_DOWN)){
-    cusor->y = 250;
+  else if (data->cusor->y == 175 && IsKeyPressed(KEY_S) || data->cusor->y == 175 && IsKeyPressed(KEY_DOWN)){
+    data->cusor->y = 250;
   }
-  else if (cusor->y == 250 && IsKeyPressed(KEY_S) || cusor->y == 250 && IsKeyPressed(KEY_DOWN)){
-    cusor->y = 100;
+  else if (data->cusor->y == 250 && IsKeyPressed(KEY_S) || data->cusor->y == 250 && IsKeyPressed(KEY_DOWN)){
+    data->cusor->y = 100;
   }
-  else if (cusor->y == 100 && IsKeyPressed(KEY_W) || cusor->y == 100 && IsKeyPressed(KEY_UP)){
-    cusor->y = 250;
+  else if (data->cusor->y == 100 && IsKeyPressed(KEY_W) || data->cusor->y == 100 && IsKeyPressed(KEY_UP)){
+    data->cusor->y = 250;
   }
-  else if (cusor->y == 175 && IsKeyPressed(KEY_W) || cusor->y == 175 && IsKeyPressed(KEY_UP)){
-    cusor->y = 100;
+  else if (data->cusor->y == 175 && IsKeyPressed(KEY_W) || data->cusor->y == 175 && IsKeyPressed(KEY_UP)){
+    data->cusor->y = 100;
   }
-  else if (cusor->y == 250 && IsKeyPressed(KEY_W) || cusor->y == 250 && IsKeyPressed(KEY_UP)){
-    cusor->y = 175;
+  else if (data->cusor->y == 250 && IsKeyPressed(KEY_W) || data->cusor->y == 250 && IsKeyPressed(KEY_UP)){
+    data->cusor->y = 175;
   }
   else {
-    cusor->y = cusor->y;
+    data->cusor->y = data->cusor->y;
   }
   
-  if (cusor->x == 200 && IsKeyPressed(KEY_D) || cusor->x == 200 && IsKeyPressed(KEY_RIGHT)){
-    cusor->x = 450;
+  if (data->cusor->x == 200 && IsKeyPressed(KEY_D) || data->cusor->x == 200 && IsKeyPressed(KEY_RIGHT)){
+    data->cusor->x = 450;
   }
-  else if (cusor->x == 450 && IsKeyPressed(KEY_A) || cusor->x == 450 && IsKeyPressed(KEY_LEFT)){
-    cusor->x = 200;
+  else if (data->cusor->x == 450 && IsKeyPressed(KEY_A) || data->cusor->x == 450 && IsKeyPressed(KEY_LEFT)){
+    data->cusor->x = 200;
   }
   else {
-    cusor->x = cusor->x;
+    data->cusor->x = data->cusor->x;
   }
 
-  if (cusor->y == 100 && cusor->x == 200 && IsKeyPressed(KEY_ENTER)) scene->scene = easy; 
-  else if (cusor->y == 175 && cusor->x == 200 && IsKeyPressed(KEY_ENTER)) scene->scene = medium;
-  else if (cusor->y == 250 && cusor->x == 200 && IsKeyPressed(KEY_ENTER)) scene->scene = hard;
-  else if (cusor->y == 100 && cusor->x == 450 && IsKeyPressed(KEY_ENTER)) scene->scene = endless; 
-  else if (cusor->y == 175 && cusor->x == 450 && IsKeyPressed(KEY_ENTER)) scene->scene = credits;
-  else if (cusor->y == 250 && cusor->x == 450 && IsKeyPressed(KEY_ENTER)) scene->scene = quit;
+  if (data->cusor->y == 100 && data->cusor->x == 200 && IsKeyPressed(KEY_ENTER)) data->scene = easy; 
+  else if (data->cusor->y == 175 && data->cusor->x == 200 && IsKeyPressed(KEY_ENTER)) data->scene = medium;
+  else if (data->cusor->y == 250 && data->cusor->x == 200 && IsKeyPressed(KEY_ENTER)) data->scene = hard;
+  else if (data->cusor->y == 100 && data->cusor->x == 450 && IsKeyPressed(KEY_ENTER)) data->scene = endless; 
+  else if (data->cusor->y == 175 && data->cusor->x == 450 && IsKeyPressed(KEY_ENTER)) data->scene = credits;
+  else if (data->cusor->y == 250 && data->cusor->x == 450 && IsKeyPressed(KEY_ENTER)) data->scene = quit;
   else {;}        
 }
